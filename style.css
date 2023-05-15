@@ -1,0 +1,161 @@
+@import url("https://use.typekit.net/jmk3xov.css");
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+
+:root {
+  --dark-bg: rgba(15, 15, 15, 0.95);
+  --spacing: 350px;
+
+  font-family: 'Playfair Display', serif;
+
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+main {
+  width: 100vw;
+  color: #FFE1E9;
+  z-index: 99;
+  position: absolute;
+  width: 100%;
+  margin: 0px auto;
+  padding: 120px 0px;
+  
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.skills{
+  display:grid;
+  grid-gap:10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.skills > p {
+  width:50%;
+  color:dark grey;
+}
+
+h1, h2, h3 {
+  font-family: "Lucida Console", Courier, monospace;
+  font-weight: 250;
+  font-style: normal;
+  color:dark grey;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+
+
+  header {
+    /* background: var(--dark-bg); */
+    grid-column: 2 / span 5;
+    font-size: 2rem;
+    padding: 2rem;
+    margin-bottom: var(--spacing);
+  }
+
+
+  section {
+    grid-column: 2 / 8;
+    padding: 1rem;
+    background: inherit;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: var(--spacing);
+  }
+
+  section > h3 {
+  color:lightgray;
+  font-weight: 300;
+  }
+
+  section > p > a {
+    color:paleturquoise;
+    text-decoration: none;
+  }
+
+  section > h4 {
+    color: paleturquoise;
+  }
+
+  .bio {
+    margin: 0;
+    padding: 0;
+    grid-column: 2 / span 9;
+    margin-bottom: var(--spacing);
+  }
+
+  .bio p {
+    color: #FFE1E9;
+    background-color: none;
+    font-size: 1.5rem;
+    display: inline;
+    line-height: 1;
+  }
+
+  section > h2 {
+    color: rgb(62, 231, 62);
+    font-weight: bold;
+  }
+
+  .left {
+    grid-column: 6 / 12;
+  }
+
+  .slide-in {
+    animation-name: slideIn;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .jiggle-text p {
+    display: inline-block;
+    transition: transform 1s ease;
+  }
+  
+  .jiggle-text p:hover {
+    animation: jiggle 1s infinite;
+  }
+  
+  @keyframes jiggle {
+    0% { transform: rotateZ(0); }
+    25% { transform: rotateZ(-3deg); }
+    50% { transform: rotateZ(5deg); }
+    75% { transform: rotateZ(-3deg); }
+    100% { transform: rotateZ(0); }
+  }
+
+  .end {
+    position:absolute;
+    bottom: 0;
+    font-size: 3rem;
+    left: 50%;
+    transform: translateX(-50%); 
+  }
+
+
+  
+
+  
