@@ -1,161 +1,262 @@
-@import url("https://use.typekit.net/jmk3xov.css");
-
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
+/* Import a modern, clean font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
 :root {
-  --dark-bg: rgba(15, 15, 15, 0.95);
-  --spacing: 350px;
-
-  font-family: 'Playfair Display', serif;
-
-  font-weight: 300;
-  font-style: normal;
+  /* Primary color scheme tuned to match a cosmic background */
+  --accent-color: #a544c5; /* Purple accent */
+  --secondary-color: #ef9c44; /* Orange accent */
+  --text-color: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --card-blur: 15px;
+  --max-width: 1200px;
+  --section-padding: 2rem;
+  --transition-speed: 0.3s;
 }
 
-
-main {
-  width: 100vw;
-  color: #FFE1E9;
-  z-index: 99;
-  position: absolute;
-  width: 100%;
-  margin: 0px auto;
-  padding: 120px 0px;
-  
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+/* Global resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.skills{
-  display:grid;
-  grid-gap:10px;
-  grid-template-columns: repeat(2, 1fr);
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #0f0f0f;
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-.skills > p {
-  width:50%;
-  color:dark grey;
-}
-
-h1, h2, h3 {
-  font-family: "Lucida Console", Courier, monospace;
-  font-weight: 250;
-  font-style: normal;
-  color:dark grey;
-}
-
+/* Canvas remains fixed for your cosmic background */
 canvas {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
 }
 
+/* Main content container */
+main {
+  position: relative;
+  z-index: 10;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
 
+/* Glass card style with animated gradient */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(var(--card-blur));
+  -webkit-backdrop-filter: blur(var(--card-blur));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: var(--section-padding);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition-speed) ease,
+    box-shadow var(--transition-speed) ease;
+  position: relative;
+  overflow: hidden;
+}
 
-  header {
-    /* background: var(--dark-bg); */
-    grid-column: 2 / span 5;
-    font-size: 2rem;
-    padding: 2rem;
-    margin-bottom: var(--spacing);
+/* Animated gradient overlay */
+.glass-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(165, 68, 197, 0.2),
+    rgba(239, 156, 68, 0.2),
+    rgba(165, 68, 197, 0.2)
+  );
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
   }
-
-
-  section {
-    grid-column: 2 / 8;
-    padding: 1rem;
-    background: inherit;
-    font-size: 1.25rem;
-    line-height: 1.5;
-    margin-bottom: var(--spacing);
+  50% {
+    background-position: 100% 50%;
   }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
-  section > h3 {
-  color:lightgray;
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
+}
+
+/* Intro Section */
+header.intro {
+  text-align: center;
+  background-color: transparent;
+  animation: slideIn 1s ease-in-out;
+}
+
+header.intro h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+  text-shadow: 0 0 10px rgba(239, 156, 68, 0.5);
+}
+
+header.intro p {
+  font-size: 1.25rem;
   font-weight: 300;
-  }
+  color: var(--text-color);
+  transition: transform var(--transition-speed) ease;
+}
 
-  section > p > a {
-    color:paleturquoise;
-    text-decoration: none;
-  }
+header.intro p:hover {
+  transform: scale(1.05);
+}
 
-  section > h4 {
-    color: paleturquoise;
-  }
+/* Section Titles */
+section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
 
-  .bio {
-    margin: 0;
-    padding: 0;
-    grid-column: 2 / span 9;
-    margin-bottom: var(--spacing);
-  }
+/* Bio Text */
+.bio p {
+  font-size: 1.125rem;
+  margin-top: 0.5rem;
+}
 
-  .bio p {
-    color: #FFE1E9;
-    background-color: none;
-    font-size: 1.5rem;
-    display: inline;
-    line-height: 1;
-  }
+/* Skills Grid */
+.tech-stack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
 
-  section > h2 {
-    color: rgb(62, 231, 62);
-    font-weight: bold;
-  }
+.tech-stack p {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.75rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 300;
+  transition: background var(--transition-speed) ease;
+}
 
-  .left {
-    grid-column: 6 / 12;
-  }
+.tech-stack p:hover {
+  background: rgba(239, 156, 68, 0.25);
+}
 
-  .slide-in {
-    animation-name: slideIn;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-  }
-  
-  @keyframes slideIn {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
+/* Projects, Certifications, and Experience */
+.projects article,
+.experience article,
+.certifications article {
+  margin-bottom: 2rem;
+}
 
-  .jiggle-text p {
-    display: inline-block;
-    transition: transform 1s ease;
-  }
-  
-  .jiggle-text p:hover {
-    animation: jiggle 1s infinite;
-  }
-  
-  @keyframes jiggle {
-    0% { transform: rotateZ(0); }
-    25% { transform: rotateZ(-3deg); }
-    50% { transform: rotateZ(5deg); }
-    75% { transform: rotateZ(-3deg); }
-    100% { transform: rotateZ(0); }
-  }
+.projects article h3,
+.experience article h3,
+.certifications article h3 {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
 
-  .end {
-    position:absolute;
-    bottom: 0;
-    font-size: 3rem;
-    left: 50%;
-    transform: translateX(-50%); 
+.projects article p,
+.experience article p,
+.certifications article p {
+  font-size: 1rem;
+  margin-left: 1rem;
+  line-height: 1.4;
+}
+
+/* Interactive Links */
+.links h2 {
+  margin-bottom: 1rem;
+}
+
+.links p {
+  margin-bottom: 0.5rem;
+}
+
+.links p a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color var(--transition-speed) ease;
+}
+
+.links p a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.links p a:hover {
+  color: var(--secondary-color);
+}
+
+.links p a:hover::after {
+  width: 100%;
+}
+
+/* Footer */
+footer.end {
+  text-align: center;
+  font-size: 2rem;
+  animation: slideIn 1s ease-in-out;
+  color: var(--accent-color);
+  margin-top: 2rem;
+}
+
+/* Slide-in Animation for sections */
+.slide-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 1s forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
+/* Optional: Parallax effect on scroll for glass cards */
+@media (prefers-reduced-motion: no-preference) {
+  .glass-card {
+    will-change: transform;
+  }
+  /* Additional parallax effects would require some JavaScript, 
+     or you can use CSS transforms with scroll-based libraries */
+}
 
-  
-
-  
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  header.intro h1 {
+    font-size: 2.5rem;
+  }
+  section h2 {
+    font-size: 1.75rem;
+  }
+}
