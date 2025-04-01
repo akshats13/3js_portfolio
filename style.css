@@ -238,13 +238,20 @@ section h2 {
 }
 
 .project-tech-stack span {
-  padding: 0.6rem 1.2rem;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.08);
-  font-weight: 400;
-  font-size: 0.85rem; /* Slightly smaller for better fit */
-  transition: background 0.3s ease, color 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.3rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  white-space: nowrap;
   cursor: default;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Added transition */
+}
+
+.project-tech-stack span:hover {
+  background: var(--accent-color); /* Change background on hover */
+  color: #050505; /* Dark text for contrast */
+  transform: translateY(-4px); /* Increased lift effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow */
 }
 
 .project-links {
