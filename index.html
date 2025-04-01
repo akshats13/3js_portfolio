@@ -10,19 +10,20 @@
       rel="stylesheet"
     />
     <title>Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="loader">Loading...</div>
     <canvas id="bg"></canvas>
 
     <main>
       <header class="intro slide-in glass-card">
         <h1>Akshat Singh</h1>
-        <p>🚀 Welcome to my website!</p>
+        <p>🚀 Welcome to my cosmic corner of the web!</p>
       </header>
 
       <section class="bio slide-in">
-        <h2>ABOUT ME</h2>
+        <h2><span class="section-icon">🧑‍💻</span> ABOUT ME</h2>
         <p>
           Hey there! I’m a UI/UX designer with a knack for software development,
           bringing a mix of creativity and tech know-how to the table. I’m comfy
@@ -36,7 +37,7 @@
       </section>
 
       <section class="skills slide-in glass-card">
-        <h2>📜 Skills</h2>
+        <h2><span class="section-icon">📜</span> Skills</h2>
         <div class="tech-stack">
           <p>• User Research</p>
           <p>• A/B Testing</p>
@@ -45,65 +46,117 @@
           <p>• Adobe Photoshop</p>
           <p>• Midjourney</p>
           <p>• Design Principles</p>
+          <p>• JavaScript</p>
+          <p>• React</p>
         </div>
       </section>
 
       <section class="projects slide-in glass-card">
-        <h2>👩🏽‍🚀 Projects</h2>
-        <article>
-          <h3>NativeChat</h3>
-          <p>
-            • Designed an intuitive, real-time chat experience with a seamless
-            mobile-first approach using React Native.<br />
-            • Focused on creating a clean, accessible UI that supports
-            multimedia communication while ensuring smooth user interactions.<br />
-            • Optimized the chat interface for responsiveness and usability,
-            enhancing real-time messaging dynamics.
-          </p>
-        </article>
+        <h2><span class="section-icon">👩🏽‍🚀</span> Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-content">
+              <h3>NativeChat</h3>
+              <p>
+                • Designed an intuitive, real-time chat experience with a seamless
+                mobile-first approach using React Native.<br />
+                • Focused on creating a clean, accessible UI that supports
+                multimedia communication while ensuring smooth user interactions.<br />
+                • Optimized the chat interface for responsiveness and usability,
+                enhancing real-time messaging dynamics.
+              </p>
+              <div class="project-tech-stack">
+                <span>React Native</span>
+                <span>UI/UX</span>
+                <span>Mobile Design</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/akshats13/Native-Chat" target="_blank" rel="noopener noreferrer" title="View on GitHub">
+                  <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="24" height="24"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                </a>
+              </div>
+            </div>
+          </div>
 
-        <article>
-          <h3>BlockStorage</h3>
-          <p>
-            • Crafted an elegant and accessible UI for a decentralized
-            image-sharing platform.<br />
-            • Designed intuitive interactions for managing ownership and access
-            control via Ethereum smart contracts.<br />
-            • Ensured a frictionless user experience with decentralized storage
-            on IPFS, allowing users to securely upload and manage images.
-          </p>
-        </article>
+          <div class="project-card">
+            <div class="project-content">
+              <h3>BlockStorage</h3>
+              <p>
+                • Crafted an elegant and accessible UI for a decentralized
+                image-sharing platform.<br />
+                • Designed intuitive interactions for managing ownership and access
+                control via Ethereum smart contracts.<br />
+                • Ensured a frictionless user experience with decentralized storage
+                on IPFS, allowing users to securely upload and manage images.
+              </p>
+              <div class="project-tech-stack">
+                <span>Ethereum</span>
+                <span>IPFS</span>
+                <span>Web3 UI</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/akshats13/block-storage" target="_blank" rel="noopener noreferrer" title="View on GitHub">
+                  <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="24" height="24"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                </a>
+              </div>
+            </div>
+          </div>
 
-        <article>
-          <h3>Unspotify</h3>
-          <p>
-            • Developed a sleek and responsive UI for a Spotify-like music
-            streaming platform.<br />
-            • Integrated geo-location features and ShazamCore API services to
-            enhance user discovery and personalization.<br />
-            • Focused on mobile-first design principles, ensuring a consistent
-            and engaging experience across devices.
-          </p>
-        </article>
+          <div class="project-card">
+            <div class="project-content">
+              <h3>Unspotify</h3>
+              <p>
+                • Developed a sleek and responsive UI for a Spotify-like music
+                streaming platform.<br />
+                • Integrated geo-location features and ShazamCore API services to
+                enhance user discovery and personalization.<br />
+                • Focused on mobile-first design principles, ensuring a consistent
+                and engaging experience across devices.
+              </p>
+              <div class="project-tech-stack">
+                <span>React</span>
+                <span>APIs</span>
+                <span>Music Streaming</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/akshats13/Unspotify" target="_blank" rel="noopener noreferrer" title="View on GitHub">
+                  <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="24" height="24"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                </a>
+              </div>
+            </div>
+          </div>
 
-        <article>
-          <h3>NoCentral</h3>
-          <p>
-            • Designed an intuitive real estate NFT marketplace, making
-            blockchain interactions more user-friendly.<br />
-            • Created a clean and accessible interface for browsing, buying, and
-            selling ERC721-compliant real estate NFTs.<br />
-            • Prioritized ease of navigation, trust-building UI elements, and
-            seamless transaction flows for an enhanced user experience.
-          </p>
-        </article>
+          <div class="project-card">
+            <div class="project-content">
+              <h3>NoCentral</h3>
+              <p>
+                • Designed an intuitive real estate NFT marketplace, making
+                blockchain interactions more user-friendly.<br />
+                • Created a clean and accessible interface for browsing, buying, and
+                selling ERC721-compliant real estate NFTs.<br />
+                • Prioritized ease of navigation, trust-building UI elements, and
+                seamless transaction flows for an enhanced user experience.
+              </p>
+              <div class="project-tech-stack">
+                <span>NFT</span>
+                <span>Real Estate</span>
+                <span>Blockchain</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/akshats13/nocentral" target="_blank" rel="noopener noreferrer" title="View on GitHub">
+                  <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="24" height="24"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="certifications">
-          <h2>🏆 Certifications</h2>
+          <h2><span class="section-icon">🏆</span> Certifications</h2>
           <article>
             <a
               href="https://github.com/akshats13/Certificates/blob/main/Foundations%20of%20UX%20design%20-%20Google.pdf"
-              target="_blank"
+              target="_blank" rel="noopener noreferrer"
             >
               <h3>UI/UX Design Principles</h3>
             </a>
@@ -113,7 +166,7 @@
           <article>
             <a
               href="https://github.com/akshats13/Certificates/blob/main/meta_frontend.pdf"
-              target="_blank"
+              target="_blank" rel="noopener noreferrer"
             >
               <h3>Introduction to Frontend Engineering</h3>
             </a>
@@ -123,7 +176,7 @@
           <article>
             <a
               href="https://github.com/akshats13/Certificates/blob/main/software_ibm.pdf"
-              target="_blank"
+              target="_blank" rel="noopener noreferrer"
             >
               <h3>Introduction to Software Engineering</h3>
             </a>
@@ -134,7 +187,7 @@
       </section>
 
       <section class="experience slide-in glass-card">
-        <h2>🌮 Work Experience</h2>
+        <h2><span class="section-icon">🌮</span> Work Experience</h2>
         <article>
           <h3>Freelance - Software Developer</h3>
           <h4>Jan 2024 - Current</h4>
@@ -161,24 +214,27 @@
         </article>
 
         <div class="links">
-          <h2>LINKS</h2>
-          <p>
-            <a target="_blank" href="https://www.github.com/akshats13"
-              >• GITHUB</a
-            >
-          </p>
-          <p>
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/akshat-singh-0a7453221/"
-              >• LINKEDIN</a
-            >
-          </p>
-          <p>
-            <a target="_blank" href="https://leetcode.com/akshat_singh13/"
-              >• LEETCODE</a
-            >
-          </p>
+          <h2><span class="section-icon">🔗</span> Connect With Me</h2>
+          <div class="links-grid">
+            <p>
+              <a target="_blank" href="https://www.github.com/akshats13" rel="noopener noreferrer">
+                <span class="link-icon">🌟</span>
+                <span class="link-text">GitHub</span>
+              </a>
+            </p>
+            <p>
+              <a target="_blank" href="https://www.linkedin.com/in/akshat-singh-0a7453221/" rel="noopener noreferrer">
+                <span class="link-icon">💼</span>
+                <span class="link-text">LinkedIn</span>
+              </a>
+            </p>
+            <p>
+              <a target="_blank" href="https://leetcode.com/akshat_singh13/" rel="noopener noreferrer">
+                <span class="link-icon">💻</span>
+                <span class="link-text">LeetCode</span>
+              </a>
+            </p>
+          </div>
         </div>
       </section>
 

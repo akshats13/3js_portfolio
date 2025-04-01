@@ -5,11 +5,11 @@
   /* Primary color scheme tuned to match a cosmic background */
   --accent-color: #a544c5; /* Purple accent */
   --secondary-color: #ef9c44; /* Orange accent */
-  --text-color: #ffffff;
-  --card-bg: rgba(255, 255, 255, 0.1);
-  --card-blur: 15px;
-  --max-width: 1200px;
-  --section-padding: 2rem;
+  --text-color: #e0e0e0;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-blur: 10px;
+  --max-width: 1100px;
+  --section-padding: 2.5rem;
   --transition-speed: 0.3s;
 }
 
@@ -22,9 +22,9 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #0f0f0f;
+  background-color: #050505;
   color: var(--text-color);
-  line-height: 1.6;
+  line-height: 1.7;
   overflow-x: hidden;
 }
 
@@ -42,61 +42,27 @@ main {
   z-index: 10;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 4rem 1.5rem;
+  padding: 5rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 5rem;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Glass card style with animated gradient */
+/* Glass card style */
 .glass-card {
-  background: var(--card-bg);
-  backdrop-filter: blur(var(--card-blur));
-  -webkit-backdrop-filter: blur(var(--card-blur));
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
   padding: var(--section-padding);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-  transition: transform var(--transition-speed) ease,
-    box-shadow var(--transition-speed) ease;
   position: relative;
   overflow: hidden;
 }
 
-/* Animated gradient overlay */
+/* Remove background-related styles */
 .glass-card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    60deg,
-    rgba(165, 68, 197, 0.2),
-    rgba(239, 156, 68, 0.2),
-    rgba(165, 68, 197, 0.2)
-  );
-  background-size: 300% 300%;
-  animation: gradientShift 10s ease infinite;
-  z-index: -1;
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  display: none;
 }
 
 .glass-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
 }
 
 /* Intro Section */
@@ -107,15 +73,14 @@ header.intro {
 }
 
 header.intro h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--secondary-color);
-  text-shadow: 0 0 10px rgba(239, 156, 68, 0.5);
+  margin-bottom: 1rem;
+  color: #fff;
 }
 
 header.intro p {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 300;
   color: var(--text-color);
   transition: transform var(--transition-speed) ease;
@@ -127,10 +92,21 @@ header.intro p:hover {
 
 /* Section Titles */
 section h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
   font-size: 2rem;
   font-weight: 600;
   color: var(--accent-color);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+.section-icon {
+  font-size: 1.8rem;
+  display: inline-block;
+  transform: rotate(-5deg);
 }
 
 /* Bio Text */
@@ -148,16 +124,47 @@ section h2 {
 }
 
 .tech-stack p {
-  background: rgba(255, 255, 255, 0.15);
   padding: 0.75rem;
   border-radius: 8px;
   text-align: center;
   font-weight: 300;
   transition: background var(--transition-speed) ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+.tech-stack p:nth-child(2n) {
+  animation-delay: 0.5s;
+}
+
+.tech-stack p:nth-child(3n) {
+  animation-delay: 1s;
 }
 
 .tech-stack p:hover {
   background: rgba(239, 156, 68, 0.25);
+}
+
+/* Skills Section */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skills-list span {
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 400;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skills-list span:hover {
+  background: var(--accent-color);
+  color: #050505;
+  transform: translateY(-3px);
 }
 
 /* Projects, Certifications, and Experience */
@@ -183,62 +190,311 @@ section h2 {
   line-height: 1.4;
 }
 
-/* Interactive Links */
-.links h2 {
-  margin-bottom: 1rem;
+/* Project Section */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  perspective: 1000px;
 }
 
-.links p {
-  margin-bottom: 0.5rem;
-}
-
-.links p a {
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: 500;
+.project-card {
   position: relative;
-  transition: color var(--transition-speed) ease;
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  will-change: transform, box-shadow;
 }
 
-.links p a::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: var(--secondary-color);
-  transition: width 0.3s ease;
+.project-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure content takes full card height */
 }
 
-.links p a:hover {
-  color: var(--secondary-color);
+.project-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.8rem;
 }
 
-.links p a:hover::after {
-  width: 100%;
+.project-content p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  flex-grow: 1; /* Allow description to take up available space */
 }
 
-/* Footer */
-footer.end {
-  text-align: center;
-  font-size: 2rem;
-  animation: slideIn 1s ease-in-out;
-  color: var(--accent-color);
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem; /* Add some space before the link */
+}
+
+.project-tech-stack span {
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 400;
+  font-size: 0.85rem; /* Slightly smaller for better fit */
+  transition: background 0.3s ease, color 0.3s ease;
+  cursor: default;
+}
+
+.project-links {
+  margin-top: auto; /* Push to the bottom */
+  align-self: flex-end; /* Align to the right */
+  padding-top: 1rem; /* Add some space above the icon */
+}
+
+.project-card:hover {
+  transform: translateY(-10px) rotateX(8deg) rotateY(4deg) translateZ(30px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Interactive Links */
+.links {
+  margin-top: 3rem;
+}
+
+.links-grid {
+  display: grid;
+  gap: 1rem;
   margin-top: 2rem;
 }
 
-/* Slide-in Animation for sections */
-.slide-in {
+.links p {
+  margin: 0;
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.links a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.link-icon {
+  font-size: 1.5rem;
+}
+
+.link-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Hover effect for links */
+.links a:hover .link-icon {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+.links a:hover .link-text {
+  color: var(--secondary-color);
+  transition: color 0.3s ease;
+}
+
+/* Individual link colors on hover */
+.links p:nth-child(1) a:hover {
+  background: rgba(165, 68, 197, 0.2);
+}
+
+.links p:nth-child(2) a:hover {
+  background: rgba(10, 102, 194, 0.2);
+}
+
+.links p:nth-child(3) a:hover {
+  background: rgba(239, 156, 68, 0.2);
+}
+
+/* Certifications & Experience */
+.certifications {
+  margin-top: 4rem; /* Add more space above certifications */
+}
+
+.certifications article,
+.experience article {
+  margin: 2.5rem 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transform-style: preserve-3d;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.certifications article:hover,
+.experience article:hover {
+  transform: translateY(-8px) translateZ(30px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.certifications h3,
+.experience h3 {
+  color: var(--accent-color);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.certifications article:hover h3,
+.experience article:hover h3 {
+  color: var(--secondary-color);
+}
+
+.certifications h4,
+.experience h4 {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.experience p {
+  font-size: 0.95rem;
+}
+
+.certifications a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Loader Styling */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #050505;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  z-index: 1000;
+  transition: opacity 0.5s ease-out;
+}
+
+#loader.hidden {
   opacity: 0;
-  transform: translateY(20px);
-  animation: slideIn 1s forwards;
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 @keyframes slideIn {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Apply animations to sections */
+section {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+section:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+section:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+section:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+section:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+/* Smooth transitions for all interactive elements */
+a,
+button,
+.project-card {
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) rotateX(8deg) rotateY(4deg) translateZ(30px);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Footer animation */
+.end {
+  margin-top: 4rem;
+  text-align: center;
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.8s;
+}
+
+.end p {
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  transition: color 0.3s ease;
+}
+
+.end p:hover {
+  color: var(--secondary-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  header.intro h1 {
+    font-size: 2.5rem;
+  }
+  section h2 {
+    font-size: 1.75rem;
   }
 }
 
@@ -251,12 +507,11 @@ footer.end {
      or you can use CSS transforms with scroll-based libraries */
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  header.intro h1 {
-    font-size: 2.5rem;
-  }
-  section h2 {
-    font-size: 1.75rem;
-  }
+/* Footer */
+footer.end {
+  text-align: center;
+  font-size: 2rem;
+  animation: slideIn 1s ease-in-out;
+  color: var(--accent-color);
+  margin-top: 2rem;
 }
